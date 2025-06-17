@@ -15,7 +15,7 @@ type TargetingRule struct {
 	Value      string // actual value like "India" or "Android"
 }
 
-var Campaigns = []Campaign{
+/*var Campaigns = []Campaign{
 	{ID: "spotify",Name:"Spotify - Music for everyone",Image:"https://somelink",CTA:"Download",Status:"ACTIVE"},
 	{ID: "duolingo",Name:"Duolingo: Best way to learn",Image:"https://somelink2",CTA:"Install",Status:"ACTIVE"},
 	{ID: "subwaysurfer",Name:"Subway Surfer",Image:"https://somelink3",CTA:"Play",Status:"ACTIVE"},
@@ -29,4 +29,4 @@ var Targeting_rules = []TargetingRule{
 	{CampaignID:"duolingo",Dimension:"country",Type:"exclude",Value:"us"},
 	{CampaignID:"subwaysurfer",Dimension:"os",Type:"include",Value:"android"},
 	{CampaignID:"subwaysurfer",Dimension:"app",Type:"include",Value:"com.gametion.ludokinggame"},
-}
+}*/

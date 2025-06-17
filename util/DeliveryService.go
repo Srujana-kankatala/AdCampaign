@@ -2,6 +2,8 @@ package util
 
 import (
 	"AdCampaign/model"
+	"AdCampaign/db"
+	"log"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -28,10 +30,20 @@ func DeliveryService(c *gin.Context){
 
 	var matched []gin.H
 
-	for _, campaign := range model.Campaigns {
+	
+	campaigns,err := db.GetActiveCampaigns()
+	if err!=nil{
+		log.Fatal("error while fetching records from campaigns table",err)
+	}
+
+	for _, campaign := range campaigns {
 
 		var rules []model.TargetingRule
-		for _,rule := range model.Targeting_rules{
+		targeting_rules ,errTarget := db.GetTargetingRules(campaign.ID)
+		if errTarget!=nil{
+			log.Fatal("error while fetching record from targeting_rules table",errTarget)
+		}
+		for _,rule := range targeting_rules{
 			if rule.CampaignID == campaign.ID{
 			rules = append(rules,rule)
 			}
